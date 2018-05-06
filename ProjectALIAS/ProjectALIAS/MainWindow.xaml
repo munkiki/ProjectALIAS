@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800" Background="Black">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button>Button 1</Button>
-        <Button>Button 2</Button>
-        <Button>Button 3</Button>
-    </StackPanel>
+        Title="MainWindow" Height="500" Width="300" Background="Black">
+
+    <Grid >
+        <Button Name="x" Margin ="46,258.76,46,160.239" Foreground="Green" HorizontalAlignment="Center"  Width = "200" Height ="50" Background ="Black" HorizontalContentAlignment="Center" Padding="1,1,1,0" UseLayoutRounding="False" VerticalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold">New Game</Button>
+        <Button Name="z" Margin ="46,368,46,51" Foreground="Red" HorizontalAlignment="Center" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold">Exit</Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="E:\Pictures\ALIAS.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+    </Grid>
+
 </Window>
