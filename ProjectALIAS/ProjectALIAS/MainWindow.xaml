@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="550" Width="800" Background="Black">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <Button>Button 3</Button>
+    </StackPanel>
 </Window>
