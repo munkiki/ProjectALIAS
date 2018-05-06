@@ -8,9 +8,9 @@
         Title="MainWindow" Height="500" Width="300" Background="Black">
 
     <Grid >
-        <Button Name="x" Margin ="46,258.76,46,160.239" Foreground="#FF26AA26" HorizontalAlignment="Center"  Width = "200" Height ="50" Background ="Black" HorizontalContentAlignment="Center" Padding="1,1,1,0" UseLayoutRounding="False" VerticalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+        <Button Name="x" Click="newGame" Margin ="46,258.76,46,160.239" Foreground="#FF26AA26" HorizontalAlignment="Center"  Width = "200" Height ="50" Background ="Black" HorizontalContentAlignment="Center" Padding="1,1,1,0" UseLayoutRounding="False" VerticalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
              New Game</Button>
-        <Button Name="z" Margin ="46,368,46,51" Foreground="#FFB62525" HorizontalAlignment="Center" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+        <Button Name="z" Click="exitGame" Margin ="46,368,46,51" Foreground="#FFB62525" HorizontalAlignment="Center" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
              Exit</Button>
         <Grid.Background>
             <ImageBrush ImageSource="E:\Pictures\ALIAS.png" Stretch="UniformToFill"/>

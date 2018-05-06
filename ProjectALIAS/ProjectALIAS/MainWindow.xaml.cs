@@ -24,5 +24,13 @@ namespace ProjectALIAS
         {
             InitializeComponent();
         }
+        private void newGame(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void exitGame(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
