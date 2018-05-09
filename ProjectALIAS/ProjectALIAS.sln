@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectALIAS", "ProjectALIAS\ProjectALIAS.csproj", "{C881A2AC-A3C6-4944-9911-3E1FF640BFCE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22D75290-E2D3-4E78-902F-E9D526B28C34}"
-	ProjectSection(SolutionItems) = preProject
-		ProjectALIAS\bin\Debug\Words.txt = ProjectALIAS\bin\Debug\Words.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

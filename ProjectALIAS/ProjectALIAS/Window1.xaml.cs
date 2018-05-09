@@ -31,9 +31,12 @@ namespace ProjectALIAS
         }
         public void startNewGame(object sender, RoutedEventArgs e)
         {
+            List<string> wordsList = new List<string>();
+
             GameWindow w1 = new GameWindow();
             w1.Show();
             Close();
+
         }
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
