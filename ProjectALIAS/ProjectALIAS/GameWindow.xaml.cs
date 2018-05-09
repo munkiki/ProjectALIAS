@@ -15,23 +15,17 @@ using System.Windows.Shapes;
 namespace ProjectALIAS
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for GameWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class GameWindow : Window
     {
-        public Window1()
+        public GameWindow()
         {
             InitializeComponent();
         }
-        public void backToMainWindow(object sender, RoutedEventArgs e)
+        public void backToWindow1(object sender, RoutedEventArgs e)
         {
-            MainWindow w1 = new MainWindow();
-            w1.Show();
-            Close();
-        }
-        public void startNewGame(object sender, RoutedEventArgs e)
-        {
-            GameWindow w1 = new GameWindow();
+            Window1 w1 = new Window1();
             w1.Show();
             Close();
         }

@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="Window1" Height="500" Width="600" Background="Black" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Name="z" Click="backToMainWindow" Margin ="46,368,46,51" Foreground="#FFB62525" HorizontalAlignment="Left" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+        <Button Name="z" Click="backToMainWindow" Margin ="10,389,382,10" Foreground="#FFB62525" Width = "200" Height ="70" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
             Back</Button>
+        <Button Name="x" Click="startNewGame" Margin ="382,389,10,10" Foreground="#FF0AB021" Width = "200" Height ="70" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+            Begin</Button>
+        <TextBox Margin="10,10,405,424" FontSize="22" Background="Black" Foreground="#FF5267EE" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold">Number of teams
+        </TextBox>
+        <RadioButton Margin="23,50,501,389" Name="TeamButton1" Foreground="White" IsChecked="True" Content="2"/>
+        <RadioButton Margin="119,50,405,389" Name="TeamButton2" Foreground="White" Content="3"/>
+        <RadioButton Margin="23,85,501,355" Name="TeamButton3" Foreground="White" Content="4"/>
+        <RadioButton Margin="119,85,405,355" Name="TeamButton4" Foreground="White" Content="5"/>
     </Grid>
 </Window>
