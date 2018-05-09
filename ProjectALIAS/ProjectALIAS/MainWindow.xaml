@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="300" Background="Black">
+        Title="MainWindow" Height="500" Width="300" Background="Black" WindowStartupLocation="CenterScreen">
 
     <Grid >
         <Button Name="x" Click="newGame" Margin ="46,258.76,46,160.239" Foreground="#FF26AA26" HorizontalAlignment="Center"  Width = "200" Height ="50" Background ="Black" HorizontalContentAlignment="Center" Padding="1,1,1,0" UseLayoutRounding="False" VerticalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">

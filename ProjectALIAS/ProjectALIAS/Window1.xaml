@@ -1,0 +1,13 @@
+﻿<Window x:Class="ProjectALIAS.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectALIAS"
+        mc:Ignorable="d"
+        Title="Window1" Height="500" Width="600" Background="Black" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Name="z" Click="backToMainWindow" Margin ="46,368,46,51" Foreground="#FFB62525" HorizontalAlignment="Left" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+            Back</Button>
+    </Grid>
+</Window>
