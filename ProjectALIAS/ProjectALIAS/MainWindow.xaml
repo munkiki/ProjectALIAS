@@ -9,11 +9,11 @@
 
     <Grid >
         <Button Name="x" Click="newGame" Margin ="46,258.76,46,160.239" Foreground="#FF26AA26" HorizontalAlignment="Center"  Width = "200" Height ="50" Background ="Black" HorizontalContentAlignment="Center" Padding="1,1,1,0" UseLayoutRounding="False" VerticalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
-             New Game</Button>
+             Нова гра</Button>
         <Button Name="z" Click="exitGame" Margin ="46,368,46,51" Foreground="#FFB62525" HorizontalAlignment="Center" Width = "200" Height ="50" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
-             Exit</Button>
+             Вихід</Button>
         <Grid.Background>
-            <ImageBrush ImageSource="E:\Pictures\ALIAS.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="ALIAS.png" Stretch="UniformToFill"/>
         </Grid.Background>
     </Grid>
 

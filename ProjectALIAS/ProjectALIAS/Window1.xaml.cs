@@ -35,5 +35,46 @@ namespace ProjectALIAS
             w1.Show();
             Close();
         }
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("2");
+            data.Add("3");
+            data.Add("4");
+            data.Add("5");
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+        private void ComboBox1_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("1");
+            data.Add("2");
+            data.Add("3");
+            data.Add("4");
+            data.Add("5");
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+        private void ComboBox2_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("Всі слова");
+            data.Add("Козаки");
+            data.Add("Хімія");
+            data.Add("Мистецтво");
+            data.Add("Розваги");
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            string value = comboBox.SelectedItem as string;
+            Title = "Selected: " + value;
+        }
     }
 }
