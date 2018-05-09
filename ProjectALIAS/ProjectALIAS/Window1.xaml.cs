@@ -66,6 +66,7 @@ namespace ProjectALIAS
             data.Add("Хімія");
             data.Add("Мистецтво");
             data.Add("Розваги");
+            data.Add("Тварини");
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
