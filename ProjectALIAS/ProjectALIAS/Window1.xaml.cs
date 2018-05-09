@@ -83,6 +83,18 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
+        private void ComboBox4_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<int> data = new List<int>();
+            data.Add(30);
+            data.Add(40);
+            data.Add(50);
+            data.Add(60);
+            data.Add(70);
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as ComboBox;

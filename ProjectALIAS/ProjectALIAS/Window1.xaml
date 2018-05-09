@@ -5,31 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="Window1" Height="250" Width="800" Background="Black" WindowStartupLocation="CenterScreen">
+        Title="Window1" Height="400" Width="350" Background="Black" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Name="z" Click="backToMainWindow" Margin ="118,123,545,26" Foreground="#FFB62525" Height ="70" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
-            Назад</Button>
-        <Button Name="x" Click="startNewGame" Margin ="471,123,85,26" Foreground="#FF0AB021" Height ="70" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
-            Почати гру</Button>
-        <TextBox Margin="10,10,595,174" FontSize="22" Background="Black" Foreground="#FF5267EE" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Кількість команд"/>
+        <Button x:Name="z" Click="backToMainWindow" Margin ="6,307,224,10" Foreground="#FFB62525" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black" Content="Назад"/>
+        <Button x:Name="x" Click="startNewGame" Margin ="135,307,0,10" Foreground="#FF0AB021" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black" RenderTransformOrigin="0.56,4.038" Content="Почати гру"/>
+        <TextBox Margin="6,18,148,315" FontSize="22" Background="Black" Foreground="#FF5267EE" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Кількість команд"/>
         <ComboBox
-            Margin="79,50,664,134"
+            Margin="64,59,224,271"
             Loaded="ComboBox_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
-        <TextBox Margin="219,10,452,174" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Складність" SelectionBrush="Black"/>
+        <TextBox Margin="199,18,10,315" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Складність" SelectionBrush="Black"/>
         <ComboBox
-            Margin="260,50,492,134"
+            Margin="234,59,52,271"
             Loaded="ComboBox1_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
-        <TextBox Margin="399,10,239,174" FontSize="22" Background="Black" Foreground="#FFD6D61D" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Тематика слів" SelectionBrush="Black" RenderTransformOrigin="0.855,0.655"/>
+        <TextBox Margin="98,103,90,230" FontSize="22" Background="Black" Foreground="#FFD6D61D" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Тематика слів" SelectionBrush="Black" RenderTransformOrigin="0.855,0.655"/>
         <ComboBox
-            Margin="358,50,198,134"
+            Margin="10,139,10,194"
             Loaded="ComboBox2_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
-        <TextBox Margin="646,10,25,174" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Час раунду" SelectionBrush="Black"/>
+        <TextBox Margin="24,205,196,130" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Час раунду" SelectionBrush="Black"/>
         <ComboBox
-            Margin="674,50,57,134"
+            Margin="56,248,224,88"
             Loaded="ComboBox3_Loaded"
-            SelectionChanged="ComboBox_SelectionChanged"/>
+            SelectionChanged="ComboBox_SelectionChanged" RenderTransformOrigin="0.523,0.849">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.269"/>
+                    <TranslateTransform X="0.054" Y="-0.007"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <TextBox Margin="186,205,23,130" FontSize="22" Background="Black" Foreground="#FFF0A522" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Ціль (очки)" SelectionBrush="Black"/>
+        <ComboBox
+            Margin="214,247,62,87"
+            Loaded="ComboBox4_Loaded"
+            SelectionChanged="ComboBox_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.269"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
     </Grid>
 </Window>
