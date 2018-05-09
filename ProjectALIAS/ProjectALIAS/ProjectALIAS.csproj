@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ALIAS.png" />
-    <Resource Include="Words.txt" />
+    <Content Include="Words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

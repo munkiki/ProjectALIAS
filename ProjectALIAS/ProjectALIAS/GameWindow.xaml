@@ -9,6 +9,6 @@
     <Grid>
         <Button Name="z" Click="backToWindow1" Margin ="10,401,169,10" Foreground="#FFB62525" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
         Назад</Button>
-        
+        <TextBox Name="WordBox" Margin="0,44,0,366"></TextBox>
     </Grid>
 </Window>

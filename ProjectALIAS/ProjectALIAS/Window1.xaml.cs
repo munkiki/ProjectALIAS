@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace ProjectALIAS
 {
@@ -31,10 +32,63 @@ namespace ProjectALIAS
         }
         public void startNewGame(object sender, RoutedEventArgs e)
         {
-            List<string> wordsList = new List<string>();
-
             GameWindow w1 = new GameWindow();
+            List<string> wordsList = new List<string>();
+            string line = "";
+            StreamReader FileReader = new StreamReader("Words.txt");
+            while ((line = FileReader.ReadLine()) != null)
+            {
+                wordsList.Add(line);
+            }
+            FileReader.Close();
+            //Обробка результатів вибору користувача буде знизу
+            int teamNumber = int.Parse(TeamNumber.SelectedValue.ToString()); //Кількість команд
+            int difficulty = 0; //Складність слів
+            switch (Difficulty.SelectedIndex)
+            {
+                case 0:
+                    difficulty = 0;
+                    break;
+                default:
+                    difficulty = Difficulty.SelectedIndex;
+                    break;
+            }
+            int targetScore = int.Parse(Target.SelectedValue.ToString()); //Цільові очки
+            int roundDuration = int.Parse(Time.SelectedValue.ToString()); //Час раунду
+            string themeTag = ""; //Стрічка, яка відповідатиме за перевірку тематики
+            switch (Theme.SelectedIndex)
+            {
+                case 0:
+                    themeTag = " ";
+                    break;
+                case 1:
+                    themeTag = "cos";
+                    break;
+                case 2:
+                    themeTag = "chem";
+                    break;
+                case 3:
+                    themeTag = "art";
+                    break;
+                case 4:
+                    themeTag = "fun";
+                    break;
+                case 5:
+                    themeTag = "animal";
+                    break;
+            }
+            w1.WordBox.Text += "Difficulty is:" + difficulty + Environment.NewLine; //Перевірка складності
+            w1.WordBox.Text += "Number of teams is:" + teamNumber + Environment.NewLine; //Перевірка к-сті команд
+            w1.WordBox.Text += "The theme is:" + themeTag + Environment.NewLine; //Перевірка тематики
+            w1.WordBox.Text += "The round duration is:" + roundDuration + Environment.NewLine; //Перевірка тривалості раунду
+            w1.WordBox.Text += "Target score is:" + targetScore + Environment.NewLine; //Перевірка цілі в очках
+            //for (int i = 0; i < wordsList.Count; i++)
+            //{
+            //    w1.WordBox.Text += wordsList[i] + Environment.NewLine;
+            //}
+
             w1.Show();
+            
             Close();
 
         }
@@ -51,12 +105,13 @@ namespace ProjectALIAS
         }
         private void ComboBox1_Loaded(object sender, RoutedEventArgs e)
         {
-            List<int> data = new List<int>();
-            data.Add(1);
-            data.Add(2);
-            data.Add(3);
-            data.Add(4);
-            data.Add(5);
+            List<string> data = new List<string>();
+            data.Add("Всі");
+            data.Add("1");
+            data.Add("2");
+            data.Add("3");
+            data.Add("4");
+            data.Add("5");
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;

@@ -10,22 +10,22 @@
         <Button x:Name="z" Click="backToMainWindow" Margin ="6,307,224,10" Foreground="#FFB62525" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black" Content="Назад"/>
         <Button x:Name="x" Click="startNewGame" Margin ="135,307,0,10" Foreground="#FF0AB021" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black" RenderTransformOrigin="0.56,4.038" Content="Почати гру"/>
         <TextBox Margin="6,18,148,315" FontSize="22" Background="Black" Foreground="#FF5267EE" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Кількість команд"/>
-        <ComboBox
+        <ComboBox Name="TeamNumber"
             Margin="64,59,224,271"
             Loaded="ComboBox_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
         <TextBox Margin="199,18,10,315" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Складність" SelectionBrush="Black"/>
-        <ComboBox
+        <ComboBox Name="Difficulty"
             Margin="234,59,52,271"
             Loaded="ComboBox1_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
         <TextBox Margin="98,103,90,230" FontSize="22" Background="Black" Foreground="#FFD6D61D" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Тематика слів" SelectionBrush="Black" RenderTransformOrigin="0.855,0.655"/>
-        <ComboBox
+        <ComboBox Name="Theme"
             Margin="10,139,10,194"
             Loaded="ComboBox2_Loaded"
             SelectionChanged="ComboBox_SelectionChanged"/>
         <TextBox Margin="24,205,196,130" FontSize="22" Background="Black" Foreground="#FFEE52C3" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Час раунду" SelectionBrush="Black"/>
-        <ComboBox
+        <ComboBox Name="Time"
             Margin="56,248,224,88"
             Loaded="ComboBox3_Loaded"
             SelectionChanged="ComboBox_SelectionChanged" RenderTransformOrigin="0.523,0.849">
@@ -39,7 +39,7 @@
             </ComboBox.RenderTransform>
         </ComboBox>
         <TextBox Margin="186,205,23,130" FontSize="22" Background="Black" Foreground="#FFF0A522" FontFamily="Times New Roman" IsReadOnly="True" BorderBrush="Black" FontWeight="Bold" Text="Ціль (очки)" SelectionBrush="Black"/>
-        <ComboBox
+        <ComboBox Name="Target"
             Margin="214,247,62,87"
             Loaded="ComboBox4_Loaded"
             SelectionChanged="ComboBox_SelectionChanged" RenderTransformOrigin="0.5,0.5">
