@@ -37,23 +37,23 @@ namespace ProjectALIAS
         }
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>();
-            data.Add("2");
-            data.Add("3");
-            data.Add("4");
-            data.Add("5");
+            List<int> data = new List<int>();
+            data.Add(2);
+            data.Add(3);
+            data.Add(4);
+            data.Add(5);
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
         private void ComboBox1_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>();
-            data.Add("1");
-            data.Add("2");
-            data.Add("3");
-            data.Add("4");
-            data.Add("5");
+            List<int> data = new List<int>();
+            data.Add(1);
+            data.Add(2);
+            data.Add(3);
+            data.Add(4);
+            data.Add(5);
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
@@ -66,6 +66,18 @@ namespace ProjectALIAS
             data.Add("Хімія");
             data.Add("Мистецтво");
             data.Add("Розваги");
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+        private void ComboBox3_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<int> data = new List<int>();
+            data.Add(30);
+            data.Add(45);
+            data.Add(60);
+            data.Add(75);
+            data.Add(90);
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
