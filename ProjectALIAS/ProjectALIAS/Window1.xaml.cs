@@ -138,13 +138,19 @@ namespace ProjectALIAS
             {
                 finalWordsList.Add(s.Split(' ')[0]);
             }
-            GameWindow w1 = new GameWindow(finalWordsList, targetScore, roundDuration, teamNumber);//Передача списку слів у нове вікно
+            List<Team> teamList = new List<Team>();
+            for (int i = 0; i < teamNumber; i++)
+            {
+                teamList.Add(new Team());
+            }
+            GameWindow w1 = new GameWindow(finalWordsList, targetScore, roundDuration, teamList);//Передача інформації про гру у нове вікно
             //for (int i = 0; i < diffWordsList.Count; i++) //Вивід списку зі словами без зайвої інфо
             //{
             //    w1.WordBox.Text += finalWordsList[i] + Environment.NewLine;
             //}
             w1.Show();
-            //w1.ShowInfo();
+            w1.ShowInfo();
+            
             Close();
         }
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)

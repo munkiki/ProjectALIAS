@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ProjectALIAS
 {
@@ -22,19 +23,23 @@ namespace ProjectALIAS
         List<string> wordsList;
         int targetScore;
         int roundDuration;
-        int teamNumber;
+        List<Team> teamList;
+        int roundTime;
         public GameWindow()
         {
             InitializeComponent();
         }
-        public GameWindow(List<string> t, int target, int time, int teams)
+        DispatcherTimer roundTimer = new DispatcherTimer();
+        public GameWindow(List<string> t, int target, int time, List<Team> tList)
         {
             InitializeComponent();
             wordsList = t;
             targetScore = target;
             roundDuration = time;
-            teamNumber = teams;
+            teamList = tList;
+            roundTime = roundDuration;
         }
+        
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
             Window1 w1 = new Window1();
@@ -43,7 +48,6 @@ namespace ProjectALIAS
         }
         public void ShowInfo()//Показує інформацію про поточну гру (для себе)
         {
-            WordBox.Text += "The number of teams is: " + teamNumber + Environment.NewLine;
             WordBox.Text += "The round duration is: " + roundDuration + Environment.NewLine;
             WordBox.Text += "The target score is: " + targetScore + Environment.NewLine;
             WordBox.Text += "The list of words:" + Environment.NewLine;
@@ -52,6 +56,24 @@ namespace ProjectALIAS
                 WordBox.Text += s + Environment.NewLine;
             }
         }
+        public void StartRound(object sender, EventArgs e)//Початок раунду
+        {
+            roundTimer.Interval = new TimeSpan(0, 0, 1);
+            roundTimer.Tick += new EventHandler(TimerTick);
+            roundTimer.Start();
+            
+        }
+        public void TimerTick(object sender, EventArgs e)//Оновлення залишкового часу раунду
+        {
+            if (roundTime >= 0)
+            {
+                TimerBox.Text = "До кінця раунду " + roundTime.ToString() + " секунд";
+                roundTime--;
+            }
+            else roundTimer.Stop();
+        }
+
+        
     }
     public class Team
     {
