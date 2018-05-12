@@ -51,9 +51,9 @@ namespace ProjectALIAS
             }
         }
         //Повернення до меню вибору параметрів гри
-        public void backToWindow1(object sender, RoutedEventArgs e)
+        public void backToSelectWindow(object sender, RoutedEventArgs e)
         {
-            Window1 w1 = new Window1();
+            SelectWindow w1 = new SelectWindow();
             w1.Show();
             Close();
         }

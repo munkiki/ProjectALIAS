@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="GameWindow" Height="500" Width="300" Background="Black" WindowStartupLocation="CenterScreen">
+        Title="ALIAS" Height="500" Width="300" Background="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Name="z" Click="backToWindow1" Margin ="87,378,92,33" Foreground="#FFB62525" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
+        <Button Name="z" Click="backToSelectWindow" Margin ="87,378,92,33" Foreground="#FFB62525" Background ="Black" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black">
         Назад</Button>
         <TextBox Name="WordBox" Margin="10,89,10,340" IsReadOnly="True" BorderBrush="Black" Foreground="White" Background="Black" FontFamily="Times New Roman" FontWeight="Bold" TextAlignment="Center" FontSize="24"></TextBox>
         <TextBox Name="TimerBox" Margin="10,10,10,424" IsReadOnly="True" BorderBrush="Black" Foreground="#FFB02121" Background="Black" FontFamily="Times New Roman" FontWeight="Bold" TextAlignment="Center" FontSize="20"></TextBox>

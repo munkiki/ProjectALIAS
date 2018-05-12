@@ -16,11 +16,11 @@ using System.IO;
 namespace ProjectALIAS
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for SelectWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class SelectWindow : Window
     {
-        public Window1()
+        public SelectWindow()
         {
             InitializeComponent();
         }

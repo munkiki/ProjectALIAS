@@ -26,7 +26,7 @@ namespace ProjectALIAS
         }
         private void newGame(object sender, RoutedEventArgs e)
         {
-            Window1 w1 = new Window1();
+            SelectWindow w1 = new SelectWindow();
             w1.Show();
             Close();
         }
