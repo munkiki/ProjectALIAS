@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectALIAS"
         mc:Ignorable="d"
-        Title="VictoryResultsWindow" Height="200" Width="250" Background="Black" WindowStartupLocation="CenterScreen">
+        Title="VictoryResultsWindow" Height="300" Width="250" Background="Black" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox Name="victoryBox" Background="Black" Foreground="#FF2C57CB" FontSize="18" FontWeight="Bold"></TextBox>
+        <Button x:Name="mainmenu" Click="mainMenu" Margin ="32,215,32,10" Foreground="#FF19AAB9" Background ="Black" FontSize="24" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="Black" Content="Головне меню"/>
     </Grid>
 </Window>

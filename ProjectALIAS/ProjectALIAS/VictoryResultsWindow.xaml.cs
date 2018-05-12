@@ -23,5 +23,11 @@ namespace ProjectALIAS
         {
             InitializeComponent();
         }
+        public void mainMenu(object sender, EventArgs e)
+        {
+            MainWindow w1 = new MainWindow();
+            w1.Show();
+            Close();
+        }
     }
 }
