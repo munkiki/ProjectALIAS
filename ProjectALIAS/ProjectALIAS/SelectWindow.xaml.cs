@@ -94,31 +94,18 @@ namespace ProjectALIAS
                 }
             }
             List<string> diffWordsList = new List<string>();// Робочий список слів з вибраною тематикою та складністю
-            foreach (string s in tagWordsList)
+            if (difficulty == 0)
             {
-                if (difficulty == 0 && s.Contains(" ") == true)
+                diffWordsList = tagWordsList;
+            }
+            else
+            {
+                foreach (string s in tagWordsList)
                 {
-                    diffWordsList.Add(s);
-                }
-                if (difficulty == 1 && s.Contains("1") == true)
-                {
-                    diffWordsList.Add(s);
-                }
-                if (difficulty == 2 && s.Contains("2") == true)
-                {
-                    diffWordsList.Add(s);
-                }
-                if (difficulty == 3 && s.Contains("3") == true)
-                {
-                    diffWordsList.Add(s);
-                }
-                if (difficulty == 4 && s.Contains("4") == true)
-                {
-                    diffWordsList.Add(s);
-                }
-                if (difficulty == 5 && s.Contains("5") == true)
-                {
-                    diffWordsList.Add(s);
+                    if (s.Contains(difficulty.ToString()))
+                    {
+                        diffWordsList.Add(s);
+                    }
                 }
             }
             List<string> finalWordsList = new List<string>();// Список слів без зайвої інформації
