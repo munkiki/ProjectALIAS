@@ -23,6 +23,10 @@ namespace ProjectALIAS
         {
             InitializeComponent();
         }
+        public GameWindow(List<string> t)
+        {
+            List<string> wordsList = t;
+        }
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
             Window1 w1 = new Window1();

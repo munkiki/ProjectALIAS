@@ -32,7 +32,7 @@ namespace ProjectALIAS
         }
         public void startNewGame(object sender, RoutedEventArgs e)
         {
-            GameWindow w1 = new GameWindow();
+            
             List<string> wordsList = new List<string>();
             string line = "";
             StreamReader FileReader = new StreamReader("Words.txt");
@@ -77,18 +77,75 @@ namespace ProjectALIAS
                     themeTag = "animal";
                     break;
             }
-            w1.WordBox.Text += "Difficulty is:" + difficulty + Environment.NewLine; //Перевірка складності
-            w1.WordBox.Text += "Number of teams is:" + teamNumber + Environment.NewLine; //Перевірка к-сті команд
-            w1.WordBox.Text += "The theme is:" + themeTag + Environment.NewLine; //Перевірка тематики
-            w1.WordBox.Text += "The round duration is:" + roundDuration + Environment.NewLine; //Перевірка тривалості раунду
-            w1.WordBox.Text += "Target score is:" + targetScore + Environment.NewLine; //Перевірка цілі в очках
-            //for (int i = 0; i < wordsList.Count; i++)
+            List<string> tagWordsList = new List<string>();// Робочий список слів з вибраною тематикою
+            foreach(string s in wordsList)
+            {
+                if (themeTag == "cos" && s.Contains("cos") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+                else if (themeTag == "chem" && s.Contains("chem") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+                else if (themeTag == "art" && s.Contains("art") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+                else if (themeTag == "fun" && s.Contains("fun") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+                else if (themeTag == "animal" && s.Contains("animal") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+                else if (themeTag == " " && s.Contains(" ") == true)
+                {
+                    tagWordsList.Add(s);
+                }
+            }
+            List<string> diffWordsList = new List<string>();// Робочий список слів з вибраною тематикою та складністю
+            foreach (string s in tagWordsList)
+            {
+                if (difficulty == 0 && s.Contains(" ") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+                if (difficulty == 1 && s.Contains("1") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+                if (difficulty == 2 && s.Contains("2") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+                if (difficulty == 3 && s.Contains("3") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+                if (difficulty == 4 && s.Contains("4") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+                if (difficulty == 5 && s.Contains("5") == true)
+                {
+                    diffWordsList.Add(s);
+                }
+            }
+            List<string> finalWordsList = new List<string>();// Список слів без зайвої інформації
+            foreach (string s in diffWordsList)
+            {
+                finalWordsList.Add(s.Split(' ')[0]);
+            }
+            GameWindow w1 = new GameWindow(finalWordsList);//Передача списку слів у нове вікно
+            //for (int i = 0; i < diffWordsList.Count; i++) //Вивід списку зі словами без зайвої інфо
             //{
-            //    w1.WordBox.Text += wordsList[i] + Environment.NewLine;
+            //    w1.WordBox.Text += finalWordsList[i] + Environment.NewLine;
             //}
-
-            w1.Show();
             
+            w1.Show();
+
             Close();
 
         }
