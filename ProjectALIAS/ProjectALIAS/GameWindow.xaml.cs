@@ -61,7 +61,9 @@ namespace ProjectALIAS
             roundTimer.Interval = new TimeSpan(0, 0, 1);
             roundTimer.Tick += new EventHandler(TimerTick);
             roundTimer.Start();
-            
+            next.Visibility = Visibility.Visible;
+            skip.Visibility = Visibility.Visible;
+            start.Visibility = Visibility.Hidden;
         }
         public void TimerTick(object sender, EventArgs e)//Оновлення залишкового часу раунду
         {
@@ -69,16 +71,43 @@ namespace ProjectALIAS
             {
                 TimerBox.Text = "До кінця раунду " + roundTime.ToString() + " секунд";
                 roundTime--;
+                teamtext.Text = "";
+                teamInfo();
             }
-            else roundTimer.Stop();
+            else
+            {
+                roundTimer.Stop();
+                next.Visibility = Visibility.Hidden;
+                skip.Visibility = Visibility.Hidden;
+                start.Visibility = Visibility.Visible;
+                TimerBox.Clear();
+            }
+        }
+        public void teamInfo()
+        {
+            int i = 1;
+            foreach(Team t in teamList)
+            {
+                teamtext.Text += "Team " + i + ": " + t.currentscore + "points." + Environment.NewLine;
+                i++;
+            }
+            
+        }
+        public void SkipWord(object sender, EventArgs e)
+        {
+
+        }
+        public void NextWord(object sender, EventArgs e)
+        {
+
         }
 
-        
     }
     public class Team
     {
-        int currentscore = 0;
-        bool isActive = false;
-        bool wins = false;
+        public int currentscore = 0;
+        public bool isActive = false;
+        public bool wins = false;
+        
     }
 }
