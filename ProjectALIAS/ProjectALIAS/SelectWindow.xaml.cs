@@ -35,12 +35,20 @@ namespace ProjectALIAS
             //Створення списку всіх слів з тегами з файлу
             List<string> wordsList = new List<string>();
             string line = "";
-            StreamReader FileReader = new StreamReader("Words.txt");
-            while ((line = FileReader.ReadLine()) != null)
+            try
             {
-                wordsList.Add(line);
+                StreamReader FileReader = new StreamReader("Words.txt");
+                while ((line = FileReader.ReadLine()) != null)
+                {
+                    wordsList.Add(line);
+                }
+                FileReader.Close();
             }
-            FileReader.Close();
+            catch (FileNotFoundException ex)
+            {
+                VictoryResultsWindow wEx = new VictoryResultsWindow();
+                wEx.victoryBox.Text = ex.Message;
+            }
             //Обробка результатів вибору користувача буде знизу
             int teamNumber = int.Parse(TeamNumber.SelectedValue.ToString()); //Кількість команд
             int difficulty = 0; //Складність слів
@@ -80,27 +88,7 @@ namespace ProjectALIAS
             List<string> tagWordsList = new List<string>();// Робочий список слів з вибраною тематикою
             foreach(string s in wordsList)
             {
-                if (themeTag == "cos" && s.Contains("cos") == true)
-                {
-                    tagWordsList.Add(s);
-                }
-                else if (themeTag == "chem" && s.Contains("chem") == true)
-                {
-                    tagWordsList.Add(s);
-                }
-                else if (themeTag == "art" && s.Contains("art") == true)
-                {
-                    tagWordsList.Add(s);
-                }
-                else if (themeTag == "fun" && s.Contains("fun") == true)
-                {
-                    tagWordsList.Add(s);
-                }
-                else if (themeTag == "animal" && s.Contains("animal") == true)
-                {
-                    tagWordsList.Add(s);
-                }
-                else if (themeTag == " " && s.Contains(" ") == true)
+                if (s.Contains(themeTag))
                 {
                     tagWordsList.Add(s);
                 }
