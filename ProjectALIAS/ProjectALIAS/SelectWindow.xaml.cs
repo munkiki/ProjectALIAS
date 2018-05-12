@@ -51,16 +51,7 @@ namespace ProjectALIAS
             }
             //Обробка результатів вибору користувача буде знизу
             int teamNumber = int.Parse(TeamNumber.SelectedValue.ToString()); //Кількість команд
-            int difficulty = 0; //Складність слів
-            switch (Difficulty.SelectedIndex)
-            {
-                case 0:
-                    difficulty = 0;
-                    break;
-                default:
-                    difficulty = Difficulty.SelectedIndex;
-                    break;
-            }
+            int difficulty = Difficulty.SelectedIndex; //Складність слів
             int targetScore = int.Parse(Target.SelectedValue.ToString()); //Цільові очки
             int roundDuration = int.Parse(Time.SelectedValue.ToString()); //Час раунду
             string themeTag = ""; //Стрічка, яка відповідатиме за перевірку тематики
