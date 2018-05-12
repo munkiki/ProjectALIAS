@@ -13,12 +13,7 @@ namespace ProjectALIAS
     /// </summary>
     public partial class App : Application
     {
-        Words wList = new Words();
-        if ()
+        
     }
-    public class Words
-    {
-        List<string> workList;
-
-    }
+    
 }

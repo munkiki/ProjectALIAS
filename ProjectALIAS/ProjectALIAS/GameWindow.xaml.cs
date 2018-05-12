@@ -19,13 +19,21 @@ namespace ProjectALIAS
     /// </summary>
     public partial class GameWindow : Window
     {
+        List<string> wordsList;
+        int targetScore;
+        int roundDuration;
+        int teamNumber;
         public GameWindow()
         {
             InitializeComponent();
         }
-        public GameWindow(List<string> t)
+        public GameWindow(List<string> t, int target, int time, int teams)
         {
-            List<string> wordsList = t;
+            InitializeComponent();
+            wordsList = t;
+            targetScore = target;
+            roundDuration = time;
+            teamNumber = teams;
         }
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
@@ -33,5 +41,22 @@ namespace ProjectALIAS
             w1.Show();
             Close();
         }
+        public void ShowInfo()//Показує інформацію про поточну гру (для себе)
+        {
+            WordBox.Text += "The number of teams is: " + teamNumber + Environment.NewLine;
+            WordBox.Text += "The round duration is: " + roundDuration + Environment.NewLine;
+            WordBox.Text += "The target score is: " + targetScore + Environment.NewLine;
+            WordBox.Text += "The list of words:" + Environment.NewLine;
+            foreach(string s in wordsList)
+            {
+                WordBox.Text += s + Environment.NewLine;
+            }
+        }
+    }
+    public class Team
+    {
+        int currentscore = 0;
+        bool isActive = false;
+        bool wins = false;
     }
 }
