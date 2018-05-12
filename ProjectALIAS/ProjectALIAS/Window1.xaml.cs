@@ -136,7 +136,7 @@ namespace ProjectALIAS
             List<string> finalWordsList = new List<string>();// Список слів без зайвої інформації
             foreach (string s in diffWordsList)
             {
-                finalWordsList.Add(s.Split(' ')[0]);
+                finalWordsList.Add(s.Split('(')[0]);
             }
             List<Team> teamList = new List<Team>();
             for (int i = 0; i < teamNumber; i++)

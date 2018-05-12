@@ -27,11 +27,13 @@ namespace ProjectALIAS
         int roundTime;
         int currentTeamNumber = 0;
         int TeamNumber;
+        DispatcherTimer roundTimer = new DispatcherTimer();
+        List<Word> words = new List<Word>();
+        Random x = new Random();
         public GameWindow()
         {
             InitializeComponent();
         }
-        DispatcherTimer roundTimer = new DispatcherTimer();
         public GameWindow(List<string> t, int target, int time, List<Team> tList, int tNumber)
         {
             InitializeComponent();
@@ -41,7 +43,10 @@ namespace ProjectALIAS
             teamList = tList;
             roundTime = roundDuration;
             TeamNumber = tNumber;
-            
+            foreach(string s in wordsList)
+            {
+                words.Add(new Word(s));
+            }
         }
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
@@ -61,6 +66,7 @@ namespace ProjectALIAS
         }
         public void StartRound(object sender, EventArgs e)//Початок раунду
         {
+            newWord();
             roundTime = roundDuration;
             roundTimer.Interval = new TimeSpan(0,0,1);
             roundTimer.Tick += new EventHandler(TimerTick);
@@ -111,15 +117,15 @@ namespace ProjectALIAS
                 teamtext.Text += "Команда " + i + ": " + t.currentscore + " очок." + Environment.NewLine;
                 i++;
             }
-            
         }
         public void SkipWord(object sender, EventArgs e)
         {
-
+            newWord();
         }
         public void NextWord(object sender, EventArgs e)
         {
-            foreach(Team t in teamList)
+            newWord();
+            foreach (Team t in teamList)
             {
                 if (t.isActive == true)
                 {
@@ -146,13 +152,51 @@ namespace ProjectALIAS
             w1.Show();
             Close();
         }
-
+        public void newWord()//Вивід нового слова в гру
+        {
+            int unusedWordsCount = 0;
+            foreach(Word w in words)
+            {
+                if(w.isUsed == false)
+                {
+                    unusedWordsCount++;
+                }
+            }
+            if (unusedWordsCount != 0)
+            {
+                int randomNumber = x.Next(words.Count);
+                if (words[randomNumber].isUsed == false)
+                {
+                    WordBox.Text = words[randomNumber].Name;
+                    words[randomNumber].isUsed = true;
+                }
+                else
+                {
+                    newWord();
+                }
+            }
+            else
+            {
+                foreach(Word w in words)
+                {
+                    w.isUsed = false;
+                }
+            }
+        }
     }
     public class Team
     {
         public int currentscore = 0;
         public bool isActive = false;
         public bool wins = false;
-        
+    }
+    public class Word
+    {
+        public string Name;
+        public bool isUsed = false;
+        public Word(string t)
+        {
+            Name = t;
+        }
     }
 }
