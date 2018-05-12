@@ -24,15 +24,15 @@ namespace ProjectALIAS
         {
             InitializeComponent();
         }
-        public void backToMainWindow(object sender, RoutedEventArgs e)
+        public void backToMainWindow(object sender, RoutedEventArgs e)//Повернення до головного меню
         {
             MainWindow w1 = new MainWindow();
             w1.Show();
             Close();
         }
-        public void startNewGame(object sender, RoutedEventArgs e)
+        public void startNewGame(object sender, RoutedEventArgs e)//Початок нової гри після вибору параметрів - відкриття основного ігрового вікна
         {
-            
+            //Створення списку всіх слів з тегами з файлу
             List<string> wordsList = new List<string>();
             string line = "";
             StreamReader FileReader = new StreamReader("Words.txt");
@@ -56,7 +56,7 @@ namespace ProjectALIAS
             int targetScore = int.Parse(Target.SelectedValue.ToString()); //Цільові очки
             int roundDuration = int.Parse(Time.SelectedValue.ToString()); //Час раунду
             string themeTag = ""; //Стрічка, яка відповідатиме за перевірку тематики
-            switch (Theme.SelectedIndex)
+            switch (Theme.SelectedIndex)//Перетворення вибраної теми у тег
             {
                 case 0:
                     themeTag = " ";
@@ -148,14 +148,11 @@ namespace ProjectALIAS
             //{
             //    w1.WordBox.Text += finalWordsList[i] + Environment.NewLine;
             //}
-            
             w1.Show();
-            
             //w1.ShowInfo();
-            
             Close();
         }
-        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)//Список для вибору кількості команд
         {
             List<int> data = new List<int>();
             data.Add(2);
@@ -166,7 +163,7 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBox1_Loaded(object sender, RoutedEventArgs e)
+        private void ComboBox1_Loaded(object sender, RoutedEventArgs e)//Список для вибору складності
         {
             List<string> data = new List<string>();
             data.Add("Всі");
@@ -179,7 +176,7 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBox2_Loaded(object sender, RoutedEventArgs e)
+        private void ComboBox2_Loaded(object sender, RoutedEventArgs e)//Список для вибору тематики
         {
             List<string> data = new List<string>();
             data.Add("Всі слова");
@@ -192,7 +189,7 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBox3_Loaded(object sender, RoutedEventArgs e)
+        private void ComboBox3_Loaded(object sender, RoutedEventArgs e)//Список для вибору тривалості раунду
         {
             List<int> data = new List<int>();
             data.Add(30);
@@ -204,7 +201,7 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBox4_Loaded(object sender, RoutedEventArgs e)
+        private void ComboBox4_Loaded(object sender, RoutedEventArgs e)//Список для вибору цільової кількості очок для перемоги
         {
             List<int> data = new List<int>();
             data.Add(30);
@@ -216,7 +213,7 @@ namespace ProjectALIAS
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) //Оператор вибору елемента зі списків
         {
             var comboBox = sender as ComboBox;
             string value = comboBox.SelectedItem as string;

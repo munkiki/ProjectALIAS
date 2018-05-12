@@ -20,6 +20,7 @@ namespace ProjectALIAS
     /// </summary>
     public partial class GameWindow : Window
     {
+        //поля
         List<string> wordsList;
         int targetScore;
         int roundDuration;
@@ -30,6 +31,7 @@ namespace ProjectALIAS
         DispatcherTimer roundTimer = new DispatcherTimer();
         List<Word> words = new List<Word>();
         Random x = new Random();
+        //Конструктори
         public GameWindow()
         {
             InitializeComponent();
@@ -48,6 +50,7 @@ namespace ProjectALIAS
                 words.Add(new Word(s));
             }
         }
+        //Повернення до меню вибору параметрів гри
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
             Window1 w1 = new Window1();
@@ -66,14 +69,17 @@ namespace ProjectALIAS
         }
         public void StartRound(object sender, EventArgs e)//Початок раунду
         {
-            newWord();
+            newWord();//Генеруємо нове слово
+            //Задаємо тривалість і інші параметри таймеру
             roundTime = roundDuration;
             roundTimer.Interval = new TimeSpan(0,0,1);
             roundTimer.Tick += new EventHandler(TimerTick);
             roundTimer.Start();
+            //Ховаємо і показуємо потрібні кнопки
             next.Visibility = Visibility.Visible;
             skip.Visibility = Visibility.Visible;
             start.Visibility = Visibility.Hidden;
+            //Активація наступної по черзі команди гравців
             if (currentTeamNumber < TeamNumber)
             {
                 currentTeamNumber++;
@@ -84,7 +90,8 @@ namespace ProjectALIAS
             }
             teamList[currentTeamNumber - 1].isActive = true;
         }
-        public void TimerTick(object sender, EventArgs e)//Оновлення залишкового часу раунду
+        //Оновлення залишкового часу раунду
+        public void TimerTick(object sender, EventArgs e)
         {
             if (roundTime >= 0)
             {
@@ -93,23 +100,27 @@ namespace ProjectALIAS
                 teamtext.Text = "";
                 teamInfo();
             }
-            else//Вихід з циклу раунду
+            else//Кінець раунду
             {
-                roundTimer.Stop();
-                roundTimer = new DispatcherTimer();
+                roundTimer.Stop(); //Зупинка таймера
+                roundTimer = new DispatcherTimer(); //Переініціалізація таймера (бо багався)
+                //Активація і деактивація кнопок
                 next.Visibility = Visibility.Hidden;
                 skip.Visibility = Visibility.Hidden;
                 start.Visibility = Visibility.Visible;
+                //Очистка тексту з полів таймера і слова
                 TimerBox.Clear();
                 WordBox.Clear();
+                //Деактивація команди
                 teamList[currentTeamNumber - 1].isActive = false;
-                if (teamList[currentTeamNumber - 1].wins == true)//Перевірка, чи за раунд команда набрала виграшну кількість очок
+                //Перевірка, чи за раунд команда набрала виграшну кількість очок
+                if (teamList[currentTeamNumber - 1].wins == true)
                 {
                     Victory();
                 }
             }
         }
-        public void teamInfo()
+        public void teamInfo()//Інформація про команду
         {
             int i = 1;
             foreach(Team t in teamList)
@@ -118,14 +129,14 @@ namespace ProjectALIAS
                 i++;
             }
         }
-        public void SkipWord(object sender, EventArgs e)
+        public void SkipWord(object sender, EventArgs e)//Пропуск слова
         {
             newWord();
         }
-        public void NextWord(object sender, EventArgs e)
+        public void NextWord(object sender, EventArgs e)//Наступне слово
         {
             newWord();
-            foreach (Team t in teamList)
+            foreach (Team t in teamList)//Перевірка, чи в кінці раунду команда набрала виграшну кількість очок
             {
                 if (t.isActive == true)
                 {
@@ -137,7 +148,7 @@ namespace ProjectALIAS
                 }    
             }
         }
-        public void Victory()
+        public void Victory()//Вивід інформації по закінченні гри
         {
             VictoryResultsWindow w1 = new VictoryResultsWindow();
             
@@ -155,13 +166,15 @@ namespace ProjectALIAS
         public void newWord()//Вивід нового слова в гру
         {
             int unusedWordsCount = 0;
-            foreach(Word w in words)
+            //Перевірка, чи всі слова використані
+            foreach (Word w in words)
             {
                 if(w.isUsed == false)
                 {
                     unusedWordsCount++;
                 }
             }
+            //Генерування нового, ще не використаного, слова
             if (unusedWordsCount != 0)
             {
                 int randomNumber = x.Next(words.Count);
@@ -175,6 +188,7 @@ namespace ProjectALIAS
                     newWord();
                 }
             }
+            //Оновлення списку невикористаних слів, якщо вже всі були
             else
             {
                 foreach(Word w in words)
