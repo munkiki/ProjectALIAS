@@ -148,7 +148,9 @@ namespace ProjectALIAS
             //{
             //    w1.WordBox.Text += finalWordsList[i] + Environment.NewLine;
             //}
+            
             w1.Show();
+            
             //w1.ShowInfo();
             
             Close();
