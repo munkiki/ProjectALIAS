@@ -27,7 +27,6 @@ namespace ProjectALIAS
         int roundTime;
         int currentTeamNumber = 0;
         int TeamNumber;
-        readonly TimeSpan x = new TimeSpan(0, 0, 1);
         public GameWindow()
         {
             InitializeComponent();
@@ -62,7 +61,8 @@ namespace ProjectALIAS
         }
         public void StartRound(object sender, EventArgs e)//Початок раунду
         {
-            roundTimer.Interval = x;
+            roundTime = roundDuration;
+            roundTimer.Interval = new TimeSpan(0,0,1);
             roundTimer.Tick += new EventHandler(TimerTick);
             roundTimer.Start();
             next.Visibility = Visibility.Visible;
@@ -90,6 +90,7 @@ namespace ProjectALIAS
             else//Вихід з циклу раунду
             {
                 roundTimer.Stop();
+                roundTimer = new DispatcherTimer();
                 next.Visibility = Visibility.Hidden;
                 skip.Visibility = Visibility.Hidden;
                 start.Visibility = Visibility.Visible;
@@ -100,8 +101,6 @@ namespace ProjectALIAS
                 {
                     Victory();
                 }
-                roundTime = roundDuration;
-                return;
             }
         }
         public void teamInfo()
