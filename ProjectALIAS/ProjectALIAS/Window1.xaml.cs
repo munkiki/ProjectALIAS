@@ -143,7 +143,7 @@ namespace ProjectALIAS
             {
                 teamList.Add(new Team());
             }
-            GameWindow w1 = new GameWindow(finalWordsList, targetScore, roundDuration, teamList);//Передача інформації про гру у нове вікно
+            GameWindow w1 = new GameWindow(finalWordsList, targetScore, roundDuration, teamList, teamNumber);//Передача інформації про гру у нове вікно
             //for (int i = 0; i < diffWordsList.Count; i++) //Вивід списку зі словами без зайвої інфо
             //{
             //    w1.WordBox.Text += finalWordsList[i] + Environment.NewLine;

@@ -25,12 +25,15 @@ namespace ProjectALIAS
         int roundDuration;
         List<Team> teamList;
         int roundTime;
+        int currentTeamNumber = 0;
+        int TeamNumber;
+        readonly TimeSpan x = new TimeSpan(0, 0, 1);
         public GameWindow()
         {
             InitializeComponent();
         }
         DispatcherTimer roundTimer = new DispatcherTimer();
-        public GameWindow(List<string> t, int target, int time, List<Team> tList)
+        public GameWindow(List<string> t, int target, int time, List<Team> tList, int tNumber)
         {
             InitializeComponent();
             wordsList = t;
@@ -38,8 +41,9 @@ namespace ProjectALIAS
             roundDuration = time;
             teamList = tList;
             roundTime = roundDuration;
+            TeamNumber = tNumber;
+            
         }
-        
         public void backToWindow1(object sender, RoutedEventArgs e)
         {
             Window1 w1 = new Window1();
@@ -58,12 +62,21 @@ namespace ProjectALIAS
         }
         public void StartRound(object sender, EventArgs e)//Початок раунду
         {
-            roundTimer.Interval = new TimeSpan(0, 0, 1);
+            roundTimer.Interval = x;
             roundTimer.Tick += new EventHandler(TimerTick);
             roundTimer.Start();
             next.Visibility = Visibility.Visible;
             skip.Visibility = Visibility.Visible;
             start.Visibility = Visibility.Hidden;
+            if (currentTeamNumber < TeamNumber)
+            {
+                currentTeamNumber++;
+            }
+            else
+            {
+                currentTeamNumber = 1;
+            }
+            teamList[currentTeamNumber - 1].isActive = true;
         }
         public void TimerTick(object sender, EventArgs e)//Оновлення залишкового часу раунду
         {
@@ -74,13 +87,21 @@ namespace ProjectALIAS
                 teamtext.Text = "";
                 teamInfo();
             }
-            else
+            else//Вихід з циклу раунду
             {
                 roundTimer.Stop();
                 next.Visibility = Visibility.Hidden;
                 skip.Visibility = Visibility.Hidden;
                 start.Visibility = Visibility.Visible;
                 TimerBox.Clear();
+                WordBox.Clear();
+                teamList[currentTeamNumber - 1].isActive = false;
+                if (teamList[currentTeamNumber - 1].wins == true)//Перевірка, чи за раунд команда набрала виграшну кількість очок
+                {
+                    Victory();
+                }
+                roundTime = roundDuration;
+                return;
             }
         }
         public void teamInfo()
@@ -88,7 +109,7 @@ namespace ProjectALIAS
             int i = 1;
             foreach(Team t in teamList)
             {
-                teamtext.Text += "Team " + i + ": " + t.currentscore + "points." + Environment.NewLine;
+                teamtext.Text += "Команда " + i + ": " + t.currentscore + " очок." + Environment.NewLine;
                 i++;
             }
             
@@ -99,7 +120,32 @@ namespace ProjectALIAS
         }
         public void NextWord(object sender, EventArgs e)
         {
-
+            foreach(Team t in teamList)
+            {
+                if (t.isActive == true)
+                {
+                    t.currentscore++;
+                    if (t.currentscore >= targetScore)
+                    {
+                        t.wins = true;
+                    }
+                }    
+            }
+        }
+        public void Victory()
+        {
+            VictoryResultsWindow w1 = new VictoryResultsWindow();
+            
+            w1.victoryBox.Text += "Команда " + currentTeamNumber + " перемогла!" + Environment.NewLine;
+            w1.victoryBox.Text += "Остаточний рахунок:" + Environment.NewLine;
+            int i = 0;
+            foreach(Team t in teamList)
+            {
+                i++;
+                w1.victoryBox.Text += "Команда " + i + ": " + t.currentscore + " очок." + Environment.NewLine;
+            }
+            w1.Show();
+            Close();
         }
 
     }
